@@ -1,10 +1,5 @@
 ---
 ideas:
-- title: sdfajklfjkl
-  description: slkjfaslkjf
-  tags:
-  - hello
-  - world
 - title: dsfdsfss
   description: dsfasdflkj
   tags:
@@ -13,11 +8,13 @@ ideas:
   - world
 - title: sfasfsdf
   description: dfasf
+  rank: 2
   tags:
   - asdfsadf
   - "  asdf"
 - title: sddfaf
   description: afaf
+  rank: 2
   tags:
   - hello
   - orion
