@@ -46,7 +46,11 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/sort_by_tags' do
-    erb :index, locals: {ideas: IdeaStore.sort_by_tags}
+    erb :index, locals: {ideas: IdeaStore.sort_by_tags, groups: IdeaStore.groups}
+  end
+
+  post '/group/new' do
+    
   end
 
   not_found do

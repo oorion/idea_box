@@ -81,6 +81,7 @@ class IdeaStore
   end
 
   def self.groups
-    all.map { |idea| idea.group }.uniq
+    groups = all.map { |idea| idea.group }.uniq
+    groups.empty? ? ['default'] : groups
   end
 end

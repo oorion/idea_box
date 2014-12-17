@@ -1,22 +1,14 @@
 ---
 ideas:
-- title: asfdjl
-  description: jkljkjlkjkl
+- title: sdfasdf
+  description: kjllkjlk
+  rank: 4
   tags:
-  - ljkljkjlk
+  - lkjljk
   group: default
-- title: asfskjljkl
-  description: jlkljklkj
+- title: asdfafd
+  description: dfadsf
+  rank: 1
   tags:
-  - kjllkj
-  group: personal
-- title: aslfj
-  description: kljjlkjl
-  tags:
-  - jlljk
+  - sdafa
   group: default
-- title: sdffsadjklklkjl
-  description: jkllkjljkljk
-  tags:
-  - lkjlkjljkljkjkl
-  group: personal

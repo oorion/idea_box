@@ -3,18 +3,6 @@
     <title>IdeaBox</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <script language="javascript" charset="utf-8">
-      function validateForm() {
-        var group = document.getElementById("new_idea_group").value;
-        if (<%= groups %>.indexOf(group) >= 0) {
-          return true;
-        }
-        else {
-          alert("Please choose a valid idea group.");
-          return false;
-        }
-      }
-    </script>
   </head>
   <body>
     <%= yield %>

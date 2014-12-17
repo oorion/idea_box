@@ -3,14 +3,18 @@
 <h2>New Idea</h2>
 
 <form action="/" name="new_idea" id="new_idea" onsubmit="return validateForm();" method="post">
-  <label for="new_title">Title</label>
+  <label for="new_title">Title:</label>
   <input type="text" name="idea[title]" id="new_title"/><br/>
-  <label for="new_description">Description</label>
+  <label for="new_description">Description:</label>
   <textarea name="idea[description]" id="new_description"></textarea><br/>
-  <label for="new_tags">Tags</label>
-  <input type="text" name="idea[tags]" id="new_tags"/>
-  <label for="new_idea_group">Idea Group</label>
-  <input type="text" name="idea[group]" id="new_idea_group" value="default"/>
+  <label for="new_tags">Tags:</label>
+  <input type="text" name="idea[tags]" id="new_tags"/><br/>
+  <label for="new_idea_group">Idea Group:</label>
+  <select name="idea[group]">
+    <% groups.each do |group| %>
+      <option value="<%= group %>"><%= group %></option>
+    <% end %>
+  </select>
   <input type="submit">
 </form>
 
@@ -34,13 +38,13 @@
     <li>
       <form action="/<%= idea.id %>/like" method="post" style="display: inline">
         <input type="submit" value="+"/>
-      </form>
-      <%= idea.title %>
-      <%= idea.description %>
-      <% idea.tags.each do |tag| %>
+      </form><br/>
+      Title: <%= idea.title %><br/>
+      Description: <%= idea.description %><br/>
+      Tags: <% idea.tags.each do |tag| %>
         <a href="/tag/<%= tag %>"><%= tag %></a>
-      <% end %>
-      <%= idea.group %>
+      <% end %><br/>
+      Idea Group: <%= idea.group %><br/>
       <button><a href="/<%= idea.id %>/edit">edit</a></button>
       <form action="/<%= idea.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
