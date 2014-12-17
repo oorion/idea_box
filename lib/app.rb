@@ -9,7 +9,7 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: {ideas: IdeaStore.all.sort}
+    erb :index, locals: {ideas: IdeaStore.all.sort, groups: IdeaStore.groups}
   end
 
   post '/' do

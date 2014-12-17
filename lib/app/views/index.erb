@@ -1,18 +1,33 @@
 <h1>IdeaBox</h1>
-<form action="/" id="new_idea" method="post">
-  <p>
-    Your Idea:
-  </p>
-  <input type="text" name="idea[title]" placeholder="Title"/><br/>
-  <textarea name="idea[description]" placeholder="Description"></textarea><br/>
-  <input type="text" name="idea[tags]" placeholder="Tags"/>
+
+<h2>New Idea</h2>
+
+<form action="/" name="new_idea" id="new_idea" onsubmit="return validateForm();" method="post">
+  <label for="new_title">Title</label>
+  <input type="text" name="idea[title]" id="new_title"/><br/>
+  <label for="new_description">Description</label>
+  <textarea name="idea[description]" id="new_description"></textarea><br/>
+  <label for="new_tags">Tags</label>
+  <input type="text" name="idea[tags]" id="new_tags"/>
+  <label for="new_idea_group">Idea Group</label>
+  <input type="text" name="idea[group]" id="new_idea_group" value="default"/>
   <input type="submit">
 </form>
 
-<h3>Existing Ideas</h3>
 
-<button><a href="/">Sort by Rank</a></button>
-<button><a href="/sort_by_tags">Sort by Tags</a></button>
+<h2>Idea Groups</h2>
+
+<% groups.each do |group| %>
+  <a href="/default"><%= group %></a>
+<% end %>
+
+<form id="new_group" action="/group/new" method="post">
+  <input type="text" name="group" value=""/>
+  <input type="submit" value="Create Group">
+</form>
+
+
+<h2>Existing Ideas</h2>
 
 <ul>
   <% ideas.each do |idea| %>
@@ -20,11 +35,12 @@
       <form action="/<%= idea.id %>/like" method="post" style="display: inline">
         <input type="submit" value="+"/>
       </form>
-      <%= idea.title %><br/>
-      <%= idea.description %><br/>
+      <%= idea.title %>
+      <%= idea.description %>
       <% idea.tags.each do |tag| %>
         <a href="/tag/<%= tag %>"><%= tag %></a>
-      <% end %><br/>
+      <% end %>
+      <%= idea.group %>
       <button><a href="/<%= idea.id %>/edit">edit</a></button>
       <form action="/<%= idea.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
@@ -33,3 +49,6 @@
     </li>
   <% end %>
 </ul>
+
+<a href="/">Sort by Rank</a>
+<a href="/sort_by_tags">Sort by Tags</a>
