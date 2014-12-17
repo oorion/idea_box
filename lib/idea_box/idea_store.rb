@@ -42,6 +42,32 @@ class IdeaStore
     end
   end
 
+  def self.find_by_tag(tag)
+    database.transaction do
+      matching_ideas = database['ideas'].select do |idea|
+        idea['tags'].include?(tag)
+      end
+      create_ideas_with_ids(matching_ideas)
+    end
+  end
+
+  def self.sort_by_tags
+    all.sort_by do |idea|
+      idea.tags.first
+    end
+  end
+
+  def self.create_ideas_with_ids(ideas)
+    ideas.map do |idea|
+      id = find_index_by_idea(idea)
+      Idea.new(idea.merge("id" => id))
+    end
+  end
+
+  def self.find_index_by_idea(idea)
+    database['ideas'].index(idea)
+  end
+
   def self.update(id, data)
     database.transaction do
       database['ideas'][id] = data

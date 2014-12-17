@@ -9,10 +9,11 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: {ideas: IdeaStore.all.sort, idea: Idea.new(params)} #not sure why the idea is needed here
+    erb :index, locals: {ideas: IdeaStore.all.sort}
   end
 
   post '/' do
+    params[:idea]['tags'] = params[:idea]['tags'].split(", ")
     idea = IdeaStore.create(params[:idea])
     redirect '/'
   end
@@ -37,6 +38,15 @@ class IdeaBoxApp < Sinatra::Base
     idea.like!
     IdeaStore.update(id.to_i, idea.to_h)
     redirect '/'
+  end
+
+  get '/tag/:tag' do |tag|
+    ideas = IdeaStore.find_by_tag(tag)
+    erb :index, locals: {ideas: ideas}
+  end
+
+  get '/sort_by_tags' do
+    erb :index, locals: {ideas: IdeaStore.sort_by_tags}
   end
 
   not_found do

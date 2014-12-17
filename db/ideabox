@@ -1,7 +1,23 @@
 ---
 ideas:
-- title: test2
-  description: asldfajfljkfj
-  rank: 1
-- title: NEW MEXICO RULES
-  description: PORTLAND SUCKS
+- title: sdfajklfjkl
+  description: slkjfaslkjf
+  tags:
+  - hello
+  - world
+- title: dsfdsfss
+  description: dsfasdflkj
+  tags:
+  - idea
+  - '2'
+  - world
+- title: sfasfsdf
+  description: dfasf
+  tags:
+  - asdfsadf
+  - "  asdf"
+- title: sddfaf
+  description: afaf
+  tags:
+  - hello
+  - orion

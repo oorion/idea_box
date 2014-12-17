@@ -1,14 +1,18 @@
 <h1>IdeaBox</h1>
-<form action="/" method="post">
+<form action="/" id="new_idea" method="post">
   <p>
     Your Idea:
   </p>
-  <input type="text" name="idea[title]"/><br/>
-  <textarea name="idea[description]"></textarea><br/>
+  <input type="text" name="idea[title]" placeholder="Title"/><br/>
+  <textarea name="idea[description]" placeholder="Description"></textarea><br/>
+  <input type="text" name="idea[tags]" placeholder="Tags"/>
   <input type="submit">
 </form>
 
 <h3>Existing Ideas</h3>
+
+<button><a href="/">Sort by Rank</a></button>
+<button><a href="/sort_by_tags">Sort by Tags</a></button>
 
 <ul>
   <% ideas.each do |idea| %>
@@ -17,8 +21,11 @@
         <input type="submit" value="+"/>
       </form>
       <%= idea.title %><br/>
-      <%= idea.description %>
-      <a href="/<%= idea.id %>/edit">Edit</a>
+      <%= idea.description %><br/>
+      <% idea.tags.each do |tag| %>
+        <a href="/tag/<%= tag %>"><%= tag %></a>
+      <% end %><br/>
+      <button><a href="/<%= idea.id %>/edit">edit</a></button>
       <form action="/<%= idea.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="delete"/>
