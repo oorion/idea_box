@@ -22,7 +22,7 @@
 <h2>Idea Groups</h2>
 
 <% groups.each do |group| %>
-  <a href="/default"><%= group %></a>
+  <a href="/<%= group %>"><%= group %></a>
 <% end %>
 
 <form id="new_group" action="/group/new" method="post">

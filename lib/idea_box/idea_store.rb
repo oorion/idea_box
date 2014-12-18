@@ -79,9 +79,4 @@ class IdeaStore
       database['ideas'].delete_at(position)
     end
   end
-
-  def self.groups
-    groups = all.map { |idea| idea.group }.uniq
-    groups.empty? ? ['default'] : groups
-  end
 end

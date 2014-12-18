@@ -9,7 +9,7 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: {ideas: IdeaStore.all.sort, groups: IdeaStore.groups}
+    erb :index, locals: {ideas: IdeaStore.all.sort, groups: GroupStore.groups}
   end
 
   post '/' do
@@ -46,11 +46,12 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/sort_by_tags' do
-    erb :index, locals: {ideas: IdeaStore.sort_by_tags, groups: IdeaStore.groups}
+    erb :index, locals: {ideas: IdeaStore.sort_by_tags, groups: GroupStore.groups}
   end
 
   post '/group/new' do
-    
+    GroupStore.create(params['group'])
+    redirect '/'
   end
 
   not_found do

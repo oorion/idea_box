@@ -1,14 +1,7 @@
 ---
 ideas:
-- title: sdfasdf
-  description: kjllkjlk
-  rank: 4
+- title: asdfadfs
+  description: dsffasd
   tags:
-  - lkjljk
-  group: default
-- title: asdfafd
-  description: dfadsf
-  rank: 1
-  tags:
-  - sdafa
+  - dfa
   group: default
