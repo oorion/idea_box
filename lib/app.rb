@@ -1,4 +1,4 @@
-require 'idea_box'
+require_relative 'idea_box'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
@@ -52,6 +52,10 @@ class IdeaBoxApp < Sinatra::Base
   post '/group/new' do
     GroupStore.create(params['group'])
     redirect '/'
+  end
+
+  get '/group/:name' do |name|
+    erb :group, locals: {group: name}
   end
 
   not_found do
