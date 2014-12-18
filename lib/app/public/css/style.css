@@ -1,7 +1,57 @@
-#new_idea input, #new_idea textarea {
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%
+}
+
+input, textarea, button {
   margin: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+input:focus,
+textarea:focus,
+button:focus,
+input:hover,
+textarea:hover,
+button:hover  {
+  color: white;
+  background-color: black;
+}
+
+#new_idea {
+  float: left;
+}
+
+#idea_groups {
+  float: right;
+}
+
+#existing_ideas {
+  clear: both;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
   margin: 20px;
+  float: clear;
+}
+
+a:focus, a:hover {
+  color: red
+}
+
+#new_title, #new_description, #new_tags {
+  float: right;
 }

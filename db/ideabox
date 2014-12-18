@@ -1,7 +1,17 @@
 ---
 ideas:
-- title: asdfadfs
-  description: dsffasd
+- title: sdfasdf
+  description: asdfsadf
   tags:
-  - dfa
+  - asdfj
   group: default
+- title: This app is awesome
+  description: better ideas
+  tags:
+  - personal
+  group: default
+- title: asdfasfdjl
+  description: jlasdlkfjl
+  tags:
+  - lkasdfkjljl
+  group: personal
