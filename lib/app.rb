@@ -63,12 +63,16 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/group/:name' do |name|
-    erb :group, locals: {group: name}
+    @ideas = IdeaStore.find_by_group(name)
+    @groups = GroupStore.groups
+    erb :group, locals: {group_name: name}
   end
 
-  post '/group/:name' do |name|
+  delete '/group/:name' do |name|
     GroupStore.delete(name)
-    redirect '/'
+    @ideas = IdeaStore.find_by_group(name)
+    @groups = GroupStore.groups
+    erb :group, local: {group: name}
   end
 
   not_found do

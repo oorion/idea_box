@@ -1,4 +1,12 @@
-<h2>Group: <%= group %></h2>
-<form action="/group/<%= group %>" method="post">
+<h2>Group: <%= group_name %></h2>
+
+<form action="/group/<%= group_name %>" method="post">
+  <input type="hidden" name="_method" value="delete">
   <input type="submit" value="delete">
 </form>
+
+<%= partial :'partials/new_idea' %>
+
+<%= partial :'partials/idea_groups' %>
+
+<%= partial :'partials/existing_ideas' %>

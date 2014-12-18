@@ -79,4 +79,12 @@ class IdeaStore
       database['ideas'].delete_at(position)
     end
   end
+
+  def self.find_by_group(name)
+    database.transaction do
+      database['ideas'].select do |idea|
+        idea['group'] == name
+      end
+    end
+  end
 end

@@ -1,19 +1,29 @@
 body {
   margin-left: auto;
   margin-right: auto;
-  width: 45%;
+  width: 50%;
+  background-image: url("/white_sands.jpg");
 }
 
 h1 {
   margin-left: auto;
   margin-right: auto;
-  width: 50%
+  width: 128px;
+  color: #D8D8D8;
+  text-shadow: -2px 0 #2E2E2E, 0 2px #2E2E2E, 2px 0 #2E2E2E, 0 -2px #2E2E2E;
 }
 
-input, textarea, button {
+input, button {
   margin: 10px;
   border-radius: 3px;
   border: 1px solid black;
+}
+
+textarea {
+  margin: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
+  width: 174px;
 }
 
 input:focus,
@@ -22,20 +32,39 @@ button:focus,
 input:hover,
 textarea:hover,
 button:hover  {
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: #A9BCF5;
 }
 
 #new_idea {
+  clear: both;
   float: left;
+  margin: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  width: 300px;
+  padding: 20px;
 }
 
 #idea_groups {
   float: right;
+  margin: 10px;
+  background-color: white;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 300px;
+  padding: 20px;
 }
 
 #existing_ideas {
   clear: both;
+  float: left;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 300px;
+  padding: 20px;
 }
 
 ul {
@@ -49,9 +78,34 @@ li {
 }
 
 a:focus, a:hover {
-  color: red
+  color: #8A2908;
 }
 
 #new_title, #new_description, #new_tags {
-  float: right;
+  text-align: left;
 }
+
+#new_idea {
+  float: left;
+}
+
+.new_input label {
+  float: left;
+  clear: both;
+  /*border: 5px solid black;*/
+}
+
+.new_input .input {
+  float: right;
+  clear: both;
+  /*border: 5px solid black;*/
+}
+
+.new_input {
+  /*border: 5px solid black;
+  vertical-align: top;*/
+}
+
+/*#new_idea input, #new_idea textarea, #new_idea select {
+  float: right;
+}*/
