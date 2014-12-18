@@ -1,4 +1,4 @@
-ENV["RACK_ENV"] = "test"
+# ENV["RACK_ENV"] = "test"
 
 require 'bundler'
 Bundler.require :default, :test
@@ -15,7 +15,7 @@ class IdeaBoxAppTest < Minitest::Test
   def test_group_default_route_respons_with_a_delete_button
     get '/group/default'
     html = Nokogiri::HTML(last_response.body)
-    assert last_response.ok?
+    assert_equal 200, last_response.status
     assert_equal "delete", html.at_css('form input')['value']
   end
 end

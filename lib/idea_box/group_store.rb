@@ -22,4 +22,10 @@ class GroupStore
       database['groups']
     end
   end
+
+  def self.delete(name)
+    database.transaction do
+      database['groups'].delete_at(database['groups'].index(name))
+    end
+  end
 end

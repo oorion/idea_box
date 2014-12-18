@@ -1,0 +1,17 @@
+<section id="new_idea">
+  <h2>New Idea</h2>
+
+  <form action="/" name="new_idea" id="new_idea" onsubmit="return validateForm();" method="post">
+    <label for="new_title">Title:</label>
+    <input type="text" name="idea[title]" id="new_title"/><br/>
+    <label for="new_description">Description:</label>
+    <textarea name="idea[description]" id="new_description"></textarea><br/>
+    <label for="new_tags">Tags:</label>
+    <input type="text" name="idea[tags]" id="new_tags"/><br/>
+    <label for="new_idea_group">Idea Group:</label>
+    <select name="idea[group]">
+      <%= partial :'partials/group_option', collection: @groups %>
+    </select>
+    <input type="submit">
+  </form>
+</section>

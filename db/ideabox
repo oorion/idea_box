@@ -1,17 +1,13 @@
 ---
 ideas:
-- title: sdfasdf
-  description: asdfsadf
+- title: adfsadfjkl
+  description: lkjljk
   tags:
-  - asdfj
+  - ljk
   group: default
-- title: This app is awesome
-  description: better ideas
+- title: asfasf
+  description: jllkjasfkjl
+  rank: 1
   tags:
-  - personal
+  - slkdfjkas
   group: default
-- title: asdfasfdjl
-  description: jlasdlkfjl
-  tags:
-  - lkasdfkjljl
-  group: personal
