@@ -5,8 +5,9 @@
     Edit your Idea:
   </p>
   <input type="hidden" name="_method" value="put"/>
-  <input type="text" name="idea[title]" value="<%= idea.title %>"/><br/>
-  <textarea name="idea[description]"><%= idea.description %></textarea><br/>
-  <input type="text" name="idea[tags]" value="<%= idea.tags %>"/><br/>
+  <input type="text" name="idea[title]" value="<%= idea.title %>"/>
+  <textarea name="idea[description]"><%= idea.description %></textarea>
+  <input type="text" name="idea[tags]" value="<%= idea.tags.join(", ") %>"/>
+  <input type="text" name="idea[group]" value="<%= idea.group %>">
   <input type='submit'/>
 </form>

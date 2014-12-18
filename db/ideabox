@@ -1,20 +1,13 @@
 ---
 ideas:
-- title: dsfdsfss
-  description: dsfasdflkj
+- title: adfsadfjkl
+  description: lkjljk
   tags:
-  - idea
-  - '2'
-  - world
-- title: sfasfsdf
-  description: dfasf
-  rank: 2
+  - ljk
+  group: default
+- title: asfasf
+  description: jllkjasfkjl
+  rank: 1
   tags:
-  - asdfsadf
-  - "  asdf"
-- title: sddfaf
-  description: afaf
-  rank: 2
-  tags:
-  - hello
-  - orion
+  - slkdfjkas
+  group: default

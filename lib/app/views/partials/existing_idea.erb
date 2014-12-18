@@ -1,0 +1,20 @@
+<ul>
+  <li>
+    <form action="/<%= existing_idea.id %>/like" method="post" style="display: inline">
+      <input type="submit" value="+"/>
+    </form><br/>
+    Title: <%= existing_idea.title %><br/>
+    Description: <%= existing_idea.description %><br/>
+    Tags: <% existing_idea.tags.each do |tag| %>
+    <a href="/tag/<%= tag %>"><%= tag %></a>
+    <% end %><br/>
+    Idea Group: <%= existing_idea.group %><br/>
+    <form action=/<%= existing_idea.id %>/edit" method="get" style="display: inline;">
+      <input type="submit" value="edit">
+    </form>
+    <form style="display: inline" action="/<%= existing_idea.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete"/>
+    </form>
+  </li>
+</ul>

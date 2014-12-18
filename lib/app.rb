@@ -1,15 +1,20 @@
-require 'idea_box'
+require_relative 'idea_box'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
   set :root, 'lib/app'
+
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
 
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    erb :index, locals: {ideas: IdeaStore.all.sort}
+    @ideas = IdeaStore.all.sort
+    @groups = GroupStore.groups
+    erb :index
   end
 
   post '/' do
@@ -41,12 +46,29 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/tag/:tag' do |tag|
-    ideas = IdeaStore.find_by_tag(tag)
-    erb :index, locals: {ideas: ideas}
+    @ideas = IdeaStore.find_by_tag(tag)
+    @groups = GroupStore.groups
+    erb :index
   end
 
   get '/sort_by_tags' do
-    erb :index, locals: {ideas: IdeaStore.sort_by_tags}
+    @ideas = IdeaStore.sort_by_tags
+    @groups = GroupStore.groups
+    erb :index
+  end
+
+  post '/group/new' do
+    GroupStore.create(params['group'])
+    redirect '/'
+  end
+
+  get '/group/:name' do |name|
+    erb :group, locals: {group: name}
+  end
+
+  post '/group/:name' do |name|
+    GroupStore.delete(name)
+    redirect '/'
   end
 
   not_found do

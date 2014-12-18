@@ -1,0 +1,8 @@
+<section id="idea_groups">
+  <h2>Idea Groups</h2>
+  <%= partial :'partials/group_link', collection: @groups %>
+  <form id="new_group" action="/group/new" method="post">
+    <input type="text" name="group" value=""/>
+    <input type="submit" value="Create Group">
+  </form>
+</section>
