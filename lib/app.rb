@@ -11,6 +11,12 @@ class IdeaBoxApp < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  helpers do
+    def escape_html(text)
+      Rack::Utils.escape_html(text)
+    end
+  end
+
   get '/' do
     @ideas = IdeaStore.all.sort
     @groups = GroupStore.groups

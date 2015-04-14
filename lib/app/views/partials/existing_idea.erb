@@ -3,12 +3,12 @@
     <form action="/<%= existing_idea.id %>/like" method="post" style="display: inline">
       <input type="submit" value="+"/>
     </form><br/>
-    Title: <%= existing_idea.title %><br/>
-    Description: <%= existing_idea.description %><br/>
+    Title: <%= escape_html existing_idea.title %><br/>
+    Description: <%= escape_html existing_idea.description %><br/>
     Tags: <% existing_idea.tags.each do |tag| %>
-    <a href="/tag/<%= tag %>"><%= tag %></a>
+    <a href="/tag/<%= tag %>"><%= escape_html tag %></a>
     <% end %><br/>
-    Idea Group: <%= existing_idea.group %><br/>
+    Idea Group: <%= escape_html existing_idea.group %><br/>
     <form action=/<%= existing_idea.id %>/edit" method="get" style="display: inline;">
       <input type="submit" value="edit">
     </form>

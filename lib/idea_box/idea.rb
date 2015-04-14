@@ -21,6 +21,7 @@ class Idea
       "title" => title,
       "description" => description,
       "rank" => rank,
+      # "id" => id,
       "tags" => tags,
       "group" => group
     }
