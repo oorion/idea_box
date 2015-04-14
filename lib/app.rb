@@ -1,4 +1,5 @@
 require_relative 'idea_box'
+require_relative 'redis-config'
 
 class IdeaBoxApp < Sinatra::Base
   set :method_override, true
@@ -26,6 +27,7 @@ class IdeaBoxApp < Sinatra::Base
   post '/' do
     params[:idea]['tags'] = params[:idea]['tags'].split(", ")
     idea = IdeaStore.create(params[:idea])
+    $redis.publish :ideas, params.to_json
     redirect '/'
   end
 

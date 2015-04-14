@@ -5,6 +5,7 @@ gem 'sinatra-contrib', require: 'sinatra/reloader'
 gem 'sinatra-partial', require: 'sinatra/partial'
 gem 'shotgun', require: 'shotgun'
 gem 'pry', require: 'pry'
+gem 'redis'
 
 group :test do
   gem 'minitest', require: 'minitest/autorun'
